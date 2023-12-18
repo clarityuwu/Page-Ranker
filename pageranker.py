@@ -1,26 +1,3 @@
-"""
-Vous allez simuler le parcours aléatoire d'un graphe simulant un mini-Web par un internaute et classer les pages Web avec un score de popularité (à la PageRank) à l'aide d'un programme développé en Python.
-
-Voici la liste des taches à réaliser pour réaliser cette modélisation.
-
-Le mini-Web est modélisé par un ensemble de pages Web qui sont reliées entre elles par des liens hypertextes.
-
-Ce mini-Web est représenté par un graphe orienté, non pondéré dont les sommets sont les noms des pages Web et les arêtes les liens hypertextes.
-
-On modélisera ce graphe par une liste d'adjacence avec comme structure de données en Python un dictionnaire dont les clefs sont les sommets du graphe (les noms des pages Web) et les valeurs la liste des pages Web liées à une page donnée par un lien hypertexte.
-
-    Ecrire une fonction Python nommée genere_mini_web_aleatoire(nb_pages) qui génére aléatoirement un mini-Web composé de nb_pages pages Web reliées entre elles par des liens hypertexte.
-    Visualiser le graphe ainsi modélisé à l'aide de la bibliothèque Python Graphviz.
-    Ecrire une fonction Python nommée simule_marche_aleatoire(miniWeb, nb_deplacements) qui simule une marche aléatoire d'un internaute parmi le mini-Web représenté par le graphe miniWeb composée de nb__deplacements déplacements sur ce graphe.
-
-Cette fonction devra retourner la liste des pages Web du graphe classées par ordre de popularité en se basant sur le principe que plus une page est visitée et plus elle est populaire.
-
-    Représenter graphiquement le mini-Web avec ses pages classées par ordre de popularité à l'aide de la bibliothèque Python Graphviz.
-
-La taille (ou la couleur) d'un disque représentant une page sera proportionnelle à sa popularité.
-
-"""
-
 import networkx as nx
 import random
 import matplotlib.pyplot as plt
