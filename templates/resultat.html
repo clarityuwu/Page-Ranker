@@ -3,13 +3,15 @@
   <title>Page Ranker</title>
   <link
     rel="shortcut icon"
-    href="{{ url_for('static', filename='uwu.png') }}"
+    href="{{ url_for('static', filename='uwu.jpg') }}"
   />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='uwu.png') }}" class="icon" />
+  <img src="{{ url_for('static', filename='uwu.jpg') }}" class="icon" />
+  <h1>Graphique statistiques</h1>
+  <div class="graph">{{ result }}</div>
   <h1>Page Ranker</h1>
-  <div class="result">{{ result }}</div>
+  <div class="rank">{{ rank }}</div>
 </body>

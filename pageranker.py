@@ -25,15 +25,22 @@ def simule_marche_aleatoire(miniWeb, nb_deplacements):
     return page
 
 def classement_pages(miniWeb, nb_deplacements, nb_simulations):
-    """Retourne la liste des pages Web du graphe classées par ordre de popularité en se basant sur le principe que plus une page est visitée et plus elle est populaire.
-    """
     compteur = {}
     for page in miniWeb.keys():
         compteur[page] = 0
     for i in range(nb_simulations):
         page = simule_marche_aleatoire(miniWeb, nb_deplacements)
         compteur[page] += 1
-    return sorted(compteur, key=compteur.get, reverse=True)
+    return compteur
+
+def plot_stats(compteur):
+    pages = list(compteur.keys())
+    counts = list(compteur.values())
+    plt.bar(pages, counts)
+    plt.xlabel('Pages')
+    plt.ylabel('Counts')
+    plt.title('Page visits over iterations')
+    plt.show()
 
 def affiche_mini_web(miniWeb, classement):
     """Représente graphiquement le mini-Web avec ses pages classées par ordre de popularité et des disques dont la taille est proportionnelle à la popularité de la page.
@@ -48,7 +55,5 @@ def affiche_mini_web(miniWeb, classement):
     plt.show()
 
 miniWeb = genere_mini_web_aleatoire(10)
-print(miniWeb)
-classement = classement_pages(miniWeb, 100, 1000)
-print(classement)
-affiche_mini_web(miniWeb, classement)
+compteur = classement_pages(miniWeb, 100, 1000)
+plot_stats(compteur)

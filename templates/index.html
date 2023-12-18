@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <head>
-  <title>Bonne Année IA</title>
+  <title>Page Ranker</title>
   <link
     rel="shortcut icon"
-    href="{{ url_for('static', filename='uwu.png') }}"
+    href="{{ url_for('static', filename='uwu.jpg') }}"
   />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="/static/uwu.png" class="icon" style="left: 10px;">
-  <h1>Ai bonne année</h1>
+  <img src="/static/uwu.jpg" class="icon" style="left: 10px;">
+  <h1>Page Ranker</h1>
   <form action="http://localhost:5000/resultat.html" method="get">
-  <input type="submit" value="Click pour une phrase de Bonne Année 🥳" />
-  <a href="anglois.html">
-  <img src="/static/anglois.png" style="width: 320px;border-top-style: solid;border-top-width: 0px;margin-bottom: -7px;">
-  </a>
-  <a href="nazi.html">
-  <img src="/static/drapeau-allemagne.jpg" style="bottom: 295px;height: 192px;top: -257px;right: 0px;left: 375px;">
-  </a>
-  <a href="espagnol.html">
-  <img src="{{ url_for('static', filename='spain.png') }}" style="height: 192px;bottom: 450px;margin-top: 0px;top: -449px;right: 350px;"/>
-  </a>
-  <h3 style="height: 39px;width: 1200px;margin-left: -400px;margin-bottom: 200px;margin-top: -350px;">Code fait par Kylian et Raphael. La ia utilise le modèle Chatgpt et l'api de Chatsonic pour fournir votre phrase de bonne année ! </h3>
+  <input type="number"/>
+  <input type="submit" value="Click pour éxécuter" />
+  <h3 style="height: 39px;width: 1200px;margin-left: -400px;margin-bottom: 200px;margin-top: -350px;">Code fait par Kylian, Valentin et Raphael.</h3>
 </body>
