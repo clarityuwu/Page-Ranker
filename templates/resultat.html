@@ -10,8 +10,10 @@
 
 <body>
   <img src="{{ url_for('static', filename='uwu.jpg') }}" class="icon" />
-  <h1>Graphique statistiques</h1>
-  <div class="graph">{{ result }}</div>
-  <h1>Page Ranker</h1>
-  <div class="rank">{{ rank }}</div>
+  <div style="display: flex; justify-content: space-between;">
+    <h3 style="margin-right: 200px;">Dernier Miniweb</h3>
+    <h1 style="text-align: center;border-left-style: solid;margin-left: 375px;border-left-width: 0px;">Graphique statistiques</h1>
+  </div>
+  <img src="{{ url_for('static', filename='result.png') }}" alt="Result" style="left: 400px;">
+  <img src="{{ url_for('static', filename='result2.png') }}" alt="Result2s" style="right: 400px;bottom: 500px;">
 </body>

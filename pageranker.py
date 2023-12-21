@@ -1,6 +1,7 @@
 import networkx as nx
 import random
 import matplotlib.pyplot as plt
+import random
 
 def genere_mini_web_aleatoire(nb_pages):
     """Génère aléatoirement un mini-Web composé de nb_pages pages Web reliées entre elles par des liens hypertexte.
@@ -25,22 +26,15 @@ def simule_marche_aleatoire(miniWeb, nb_deplacements):
     return page
 
 def classement_pages(miniWeb, nb_deplacements, nb_simulations):
+    """Retourne la liste des pages Web du graphe classées par ordre de popularité en se basant sur le principe que plus une page est visitée et plus elle est populaire.
+    """
     compteur = {}
     for page in miniWeb.keys():
         compteur[page] = 0
     for i in range(nb_simulations):
         page = simule_marche_aleatoire(miniWeb, nb_deplacements)
         compteur[page] += 1
-    return compteur
-
-def plot_stats(compteur):
-    pages = list(compteur.keys())
-    counts = list(compteur.values())
-    plt.bar(pages, counts)
-    plt.xlabel('Pages')
-    plt.ylabel('Counts')
-    plt.title('Page visits over iterations')
-    plt.show()
+    return sorted(compteur, key=compteur.get, reverse=True)
 
 def affiche_mini_web(miniWeb, classement):
     """Représente graphiquement le mini-Web avec ses pages classées par ordre de popularité et des disques dont la taille est proportionnelle à la popularité de la page.
@@ -51,9 +45,26 @@ def affiche_mini_web(miniWeb, classement):
     for page in miniWeb.keys():
         for voisin in miniWeb[page]:
             G.add_edge(page, voisin)
+    fig = plt.figure()
     nx.draw(G, with_labels=True, node_size=[1000*classement.index(page) for page in G.nodes()])
-    plt.show()
+    return fig
 
-miniWeb = genere_mini_web_aleatoire(10)
-compteur = classement_pages(miniWeb, 100, 1000)
-plot_stats(compteur)
+def affiche_visites_pages(miniWeb, nb_deplacements, nb_simulations):
+    """Représente graphiquement le nombre de visites de chaque page du mini-Web.
+    """
+    compteur = {}
+    for page in miniWeb.keys():
+        compteur[page] = 0
+    for i in range(nb_simulations):
+        page = simule_marche_aleatoire(miniWeb, nb_deplacements)
+        compteur[page] += 1
+
+    pages = list(compteur.keys())
+    visites = list(compteur.values())
+
+    fig, ax = plt.subplots()
+    ax.bar(pages, visites)
+    ax.set_xlabel('Pages')
+    ax.set_ylabel('Nombre de visites')
+    ax.set_title('Nombre de visites de chaque page du mini-Web')
+    return fig

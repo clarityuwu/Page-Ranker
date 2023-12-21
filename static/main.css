@@ -28,6 +28,7 @@ body {
 }
 .icon {
   width: 72px;
+  margin-top: 128px;
 }
 h3 {
   line-height: 32px;
@@ -72,5 +73,5 @@ input[type="submit"] {
 }
 img {
   position: relative;
-  margin-top: 256px;
+  margin-top: 10px;
 }

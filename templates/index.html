@@ -9,10 +9,11 @@
 </head>
 
 <body>
-  <img src="/static/uwu.jpg" class="icon" style="left: 10px;">
+  <img src="/static/uwu.jpg" class="icon">
   <h1>Page Ranker</h1>
-  <form action="http://localhost:5000/resultat.html" method="get">
-  <input type="number"/>
-  <input type="submit" value="Click pour éxécuter" />
-  <h3 style="height: 39px;width: 1200px;margin-left: -400px;margin-bottom: 200px;margin-top: -350px;">Code fait par Kylian, Valentin et Raphael.</h3>
+  <form method="POST" action="{{ url_for('index') }}">
+    <input id='value' name='value' type="number"/>
+    <input type="submit" value="Click pour éxécuter" />
+  </form>
+  <h3 style="height: 39px;width: 1200px;margin-bottom: 200px;margin-top: -350px;">Code fait par Kylian, Valentin et Raphael.</h3>
 </body>
