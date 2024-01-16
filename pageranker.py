@@ -46,7 +46,7 @@ def affiche_mini_web(miniWeb, classement):
         for voisin in miniWeb[page]:
             G.add_edge(page, voisin)
     fig = plt.figure()
-    nx.draw(G, with_labels=True, node_size=[1000*classement.index(page) for page in G.nodes()])
+    nx.draw(G, with_labels=True, node_size=[1000*(len(classement)-classement.index(page)) for page in G.nodes()])
     return fig
 
 def affiche_visites_pages(miniWeb, nb_deplacements, nb_simulations):

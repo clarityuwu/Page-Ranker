@@ -75,3 +75,35 @@ img {
   position: relative;
   margin-top: 10px;
 }
+
+.header {
+  display: flex; 
+  justify-content: space-between;
+}
+
+.miniweb {
+  margin-right: 200px;
+}
+
+.stats {
+  text-align: center;
+  border-left-style: solid;
+  margin-left: 375px;
+  border-left-width: 0px;
+}
+
+.result1 {
+  left: 400px;
+}
+
+.result2 {
+  right: 400px;
+  bottom: 500px;
+}
+
+.footer {
+  height: 39px;
+  width: 1200px;
+  margin-bottom: 200px;
+  margin-top: -350px;
+}

@@ -1,12 +1,11 @@
-import requests
 from flask import Flask, redirect, render_template, request, url_for
-import json
 import pageranker as pr
 
 app = Flask(__name__)
 
 @app.route("/", methods=("GET", "POST"))
 def index():
+    """Return index.html"""
     if request.method == 'POST':
         value = int(request.form.get('value', 0))
         return redirect(url_for('result', value=value))
@@ -14,6 +13,7 @@ def index():
 
 @app.route("/resultat/<int:value>", methods=("GET", "POST"))
 def result(value):
+    """ Generate a random web with a ranking of the most visited page over iterations and return the result.html"""
     value = value * 100
     miniWeb = pr.genere_mini_web_aleatoire(10)
     fig1 = pr.affiche_visites_pages(miniWeb, 100, value)
